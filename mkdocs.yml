@@ -48,6 +48,7 @@ nav:
     - 关于我们: about.md
     - 成员信息: team.md
     - 作品: music.md
+
 # [Extensions]
 plugins:
   - search: # 现在还不支持中文搜索 支持之后可以设置语言
