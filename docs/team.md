@@ -41,7 +41,7 @@ unknown
 
 <details>
   <summary>章傲雪</summary>
-钢琴+音乐制作
+钢琴音乐制作，后勤
 </details>
 
 <details>
