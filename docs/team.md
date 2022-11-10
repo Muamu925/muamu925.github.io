@@ -46,7 +46,7 @@ unknown
 
 <details>
   <summary>杨智渊</summary>
-吉祥物+吉他
+吉他
 </details>
 
 <details>
