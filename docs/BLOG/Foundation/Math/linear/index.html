@@ -1,0 +1,1663 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="十四粒灰的个人网站">
+      
+      
+        <meta name="author" content="杨远航">
+      
+      
+        <link rel="canonical" href="https://muamu925.github.io/14grey/docs/BLOG/Foundation/Math/linear/">
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.7">
+    
+    
+      
+        <title>线性代数复习笔记 - 十四粒灰的官方网站</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.20d9efc8.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../../.." title="十四粒灰的官方网站" class="md-header__button md-logo" aria-label="十四粒灰的官方网站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            十四粒灰的官方网站
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              线性代数复习笔记
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="orange"  aria-label="切换至日间模式"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="切换至日间模式" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Muamu925/14grey.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    十四粒灰
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../../../index.md" class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../../../about.md" class="md-tabs__link">
+      About
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="十四粒灰的官方网站" class="md-nav__button md-logo" aria-label="十四粒灰的官方网站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    十四粒灰的官方网站
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Muamu925/14grey.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    十四粒灰
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../index.md" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about.md" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    1 向量及其运算
+  </a>
+  
+    <nav class="md-nav" aria-label="1 向量及其运算">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    线性代数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    两向量相等
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    向量运算性质
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    列向量
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    向量的线性组合
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    向量的长度
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    向量正交
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cauchy-schwarz" class="md-nav__link">
+    Cauchy-Schwarz 不等式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    三角不等式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    2 矩阵与线性方程组
+  </a>
+  
+    <nav class="md-nav" aria-label="2 矩阵与线性方程组">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    对矩阵与向量乘积的理解
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    对线性方程组的理解
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    可逆矩阵
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    线性方程组的行图和列图
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    3 高斯消元法
+  </a>
+  
+    <nav class="md-nav" aria-label="3 高斯消元法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    矩阵的初等行变换
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    增广矩阵
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    消去矩阵
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    置换阵
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    4 矩阵的运算
+  </a>
+  
+    <nav class="md-nav" aria-label="4 矩阵的运算">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    矩阵乘法的性质
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    分块矩阵
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    矩阵的转置
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    5 矩阵的逆
+  </a>
+  
+    <nav class="md-nav" aria-label="5 矩阵的逆">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    逆矩阵
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    性质
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-lu" class="md-nav__link">
+    6 LU 分解
+  </a>
+  
+    <nav class="md-nav" aria-label="6 LU 分解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lu" class="md-nav__link">
+    LU 分解的存在性和唯一性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ldlt" class="md-nav__link">
+    对称矩阵的 $LDL^T$ 分解
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    7 向量空间
+  </a>
+  
+    <nav class="md-nav" aria-label="7 向量空间">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    向量子空间
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    推广的向量空间的定义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    列空间
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    零空间
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    阶梯形
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    8 求解齐次线性方程组
+  </a>
+  
+    <nav class="md-nav" aria-label="8 求解齐次线性方程组">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-vec-xvec-0" class="md-nav__link">
+    $A \vec x=\vec 0$ 的基础解系
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    9 求解非齐次线性方程组
+  </a>
+  
+    <nav class="md-nav" aria-label="9 求解非齐次线性方程组">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    极大线性无关组
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    秩
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vec-x" class="md-nav__link">
+    求特解 $\vec x^*$
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10" class="md-nav__link">
+    10 无关性、基与维数
+  </a>
+  
+    <nav class="md-nav" aria-label="10 无关性、基与维数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    基与维数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    关于秩的不等式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    11 四个基本子空间的基与维数
+  </a>
+  
+    <nav class="md-nav" aria-label="11 四个基本子空间的基与维数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    四个基本子空间
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    子空间的基和维数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    维数公式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    12 四个基本子空间的正交性
+  </a>
+  
+    <nav class="md-nav" aria-label="12 四个基本子空间的正交性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-vec-xvec-b-cat" class="md-nav__link">
+    $A \vec x=\vec b$ 在 $C(A^T)$ 中解的唯一性
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13" class="md-nav__link">
+    13 投影
+  </a>
+  
+    <nav class="md-nav" aria-label="13 投影">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    引言
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    投影矩阵
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14" class="md-nav__link">
+    14 最小二乘法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-gram-schmidt" class="md-nav__link">
+    15 Gram-Schmidt 正交化
+  </a>
+  
+    <nav class="md-nav" aria-label="15 Gram-Schmidt 正交化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    正交化过程
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qr" class="md-nav__link">
+    QR 分解
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#16" class="md-nav__link">
+    16 行列式的基本性质
+  </a>
+  
+    <nav class="md-nav" aria-label="16 行列式的基本性质">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    行列式的几何意义
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    行列式性质
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    行列式与初等变换
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    17 行列式的计算
+  </a>
+  
+    <nav class="md-nav" aria-label="17 行列式的计算">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    行列式展开定理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    典型计算方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#n" class="md-nav__link">
+    n 阶范德蒙德行列式
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18-cramer" class="md-nav__link">
+    18 Cramer 法则及行列式的几何意义
+  </a>
+  
+    <nav class="md-nav" aria-label="18 Cramer 法则及行列式的几何意义">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    代数余子式的重要性质
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    伴随矩阵
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    求逆矩阵公式
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    线性方程组的公式解
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    向量的叉积 / 外积
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    混合积
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#19" class="md-nav__link">
+    19 特征值和特征向量
+  </a>
+  
+    <nav class="md-nav" aria-label="19 特征值和特征向量">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_49" class="md-nav__link">
+    特征值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_50" class="md-nav__link">
+    特征值的性质
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#20" class="md-nav__link">
+    20 矩阵的对角化
+  </a>
+  
+    <nav class="md-nav" aria-label="20 矩阵的对角化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_51" class="md-nav__link">
+    特征值的代数重数和几何重数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_52" class="md-nav__link">
+    对角化的应用
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    22 实对阵矩阵
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1_1" class="md-nav__link">
+    1 正定矩阵
+  </a>
+  
+    <nav class="md-nav" aria-label="1 正定矩阵">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a" class="md-nav__link">
+    实对称矩阵 A 正定的充要条件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_53" class="md-nav__link">
+    半正定矩阵
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_54" class="md-nav__link">
+    半正定矩阵的判别条件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_55" class="md-nav__link">
+    二次型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_56" class="md-nav__link">
+    主轴定理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_57" class="md-nav__link">
+    二次型的分类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_58" class="md-nav__link">
+    矩阵的合同
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3_1" class="md-nav__link">
+    3 奇异值分解
+  </a>
+  
+    <nav class="md-nav" aria-label="3 奇异值分解">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_59" class="md-nav__link">
+    奇异值分解
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_60" class="md-nav__link">
+    奇异值分解的应用
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-i" class="md-nav__link">
+    4 线性变换 I
+  </a>
+  
+    <nav class="md-nav" aria-label="4 线性变换 I">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_61" class="md-nav__link">
+    线性变换的乘积
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_62" class="md-nav__link">
+    线性变换的逆
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_63" class="md-nav__link">
+    线性变换的矩阵表示
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-ii" class="md-nav__link">
+    5 线性变换 II
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/Muamu925/14grey.github.io/edit/main/docs/docs/BLOG/Foundation/Math/linear.md" title="编辑此页" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="_1">线性代数复习笔记</h1>
+<blockquote>
+<p>以清华大学林润亮老师的ppt为基础进行整理</p>
+<p>主要用来进行知识点回顾和快速复习</p>
+</blockquote>
+<h2 id="1">1 向量及其运算</h2>
+<h3 id="_2">线性代数</h3>
+<p>线性代数是建立在向量的 <code>加法</code> 和 <code>数乘</code> 这两种所谓 <code>线性运算</code> 上的</p>
+<h3 id="_3">两向量相等</h3>
+<p>两个向量相等 $\iff$ 两者长度相等, 方向相同</p>
+<h3 id="_4">向量运算性质</h3>
+<p>向量加法和数乘的运算性质: 交结零负一乘分分</p>
+<p>分别是: 向量加法交换律, 向量加法结合律, 零向量, 反向量, 1 数乘向量, 两个数乘数乘向量, 两个数加数乘向量, 一个数数乘两个向量</p>
+<h3 id="_5">列向量</h3>
+<p>$$
+\vec{a}=
+\begin{pmatrix}
+a_1 \
+a_2 \
+\vdots \
+a_n
+\end{pmatrix}
+$$</p>
+<p>其中 $a_i$ 为向量 $\vec{a}$ 的第 $i$ 个分量</p>
+<h3 id="_6">向量的线性组合</h3>
+<p>设 $\vec v_1,\cdots,\vec v_m$ 为 $m$ 个 $n$ 维向量, 称 $c_1\vec v_1+\cdots +c_m\vec v_m$ 为向量 $\vec v_1,\cdots,\vec v_m$ 的一个线性组合</p>
+<p>在 3 维空间中，一般，对于向量 $\vec u,\vec v,\vec w$</p>
+<ul>
+<li>{非零向量 $\vec u$} 的所有线性组合是一条直线;</li>
+<li>{不共线的 $\vec u,\vec v$} 的所有线性组合是一个平面;</li>
+<li>{不共面的 $\vec u,\vec v,\vec w$} 的所有线性组合是整个三维空间.</li>
+</ul>
+<h3 id="_7">向量的长度</h3>
+<p>向量 $\vec v$ 的长度或模定义为 $\left|\vec v\right |=\sqrt{\vec v\cdot \vec v}$</p>
+<h3 id="_8">向量正交</h3>
+<p>若 $\vec v\cdot \vec  w=0$, 则称向量 $\vec v$ 和 $\vec w$ 垂直 / 正交. 记作 $\vec v\perp \vec w$</p>
+<h3 id="cauchy-schwarz">Cauchy-Schwarz 不等式</h3>
+<p>$|\vec v\cdot \vec w|=\left |\vec v\right |\left |\vec w\right |$, 等号成立当且仅当一个向量是另一个向量的倍数.</p>
+<h3 id="_9">三角不等式</h3>
+<p>$\left|\vec v+ \vec w\right |\le \left|\vec v\right|+\left|\vec w\right|$, 等号成立当且仅当 $\vec v, \vec w$ 之一为另一向量的非负倍数.</p>
+<h2 id="2">2 矩阵与线性方程组</h2>
+<h3 id="_10">对矩阵与向量乘积的理解</h3>
+<p>$A \vec x$
+- <code>理解1</code> 得到 $A$ 各列向量的一个线性组合;
+- <code>理解2</code> 列向量 $\vec x$ 与 $A$ 各行向量做内积</p>
+<h3 id="_11">对线性方程组的理解</h3>
+<p>$A \vec x=\vec b$
+- <code>理解1</code> 求 $A$ 列向量的线性组合, 使之等于 $\vec b$;
+- <code>理解2</code> 求向量 $\vec x$, 使之与 $A$ 的行向量内积分别为 $\vec b$ 中的元素</p>
+<h3 id="_12">可逆矩阵</h3>
+<p>若 $A \vec x=\vec b$ ($n$ 个方程, $n$ 个未知数) 对任意向量 $\vec b$ 有唯一解, 则称方阵 $\vec A$ 可逆</p>
+<p>若 $A=(\vec u, \vec v, \vec w)$ 可逆, 则 $\vec u, \vec v, \vec w$ 的全部线性组合所得空间是整个三维空间, 这时向量 $\vec u, \vec v, \vec w$ 线性无关 / 不共面, 相应 $A \vec x=\vec b$ 只有零解</p>
+<h3 id="_13">线性方程组的行图和列图</h3>
+<p><code>行图</code>(二维) 两直线交点
+<code>列图</code>两列向量的线性组合</p>
+<h2 id="3">3 高斯消元法</h2>
+<h3 id="_14">矩阵的初等行变换</h3>
+<p>对方程组 $A \vec x=\vec b$, 消元法涉及以下三种同解变形:
+1. 把一个方程减去另一个方程的倍数;
+2. 交换两个方程的位置;
+3. 用一个非零数乘一个方程.</p>
+<p>相应地对增广矩阵作以下三种行变换 (即: 初等行变换):
+1. 把一行减去另一行的倍数;
+2. 交换两行;
+3. 用一个非零数乘一行. </p>
+<h3 id="_15">增广矩阵</h3>
+<p>对线性方程组 $A \vec x=\vec b$ 做消元法, 即用一系列初等矩阵在左边, 去乘增广矩阵 $(A | \vec b)$</p>
+<h3 id="_16">消去矩阵</h3>
+<p>将单位阵中某个 $0$ 变为非零的数得到的矩阵称为消去矩阵, 消去矩阵是一类初等矩阵</p>
+<h3 id="_17">置换阵</h3>
+<p>如 $P_{12}=\begin{pmatrix} 0&amp;1&amp;0 \ 1&amp;0&amp;0 \ 0&amp;0&amp;1 \end{pmatrix}$</p>
+<p>置换阵 $P$ 满足 $P^{-1}=P^{T}$</p>
+<h2 id="4">4 矩阵的运算</h2>
+<h3 id="_18">矩阵乘法的性质</h3>
+<p>满足结合律, 左分配律, 右分配律</p>
+<p>矩阵的乘法一般不可交换, 消去律一般也不成立</p>
+<h3 id="_19">分块矩阵</h3>
+<h3 id="_20">矩阵的转置</h3>
+<ul>
+<li>若 $A^T=A$ 则称 $A$ 是一个对称矩阵</li>
+<li>若 $A^T=-A$ 则称 $A$ 是一个反对称矩阵</li>
+<li>若 $R$ 为 $m\times n$ 矩阵 (实数域), 则 $RR^T$ 为 $m\times n$ 对称矩阵, 且其对角元均非负</li>
+</ul>
+<h2 id="5">5 矩阵的逆</h2>
+<h3 id="_21">逆矩阵</h3>
+<p>对方阵 $A$, 若存在矩阵 $B$, 满足 $AB=BA=I$, 则称 $A$ 是可逆的. 称 $B$ 是 $A$ 的逆矩阵, 记作 $A^{-1}$.</p>
+<p>可逆矩阵也称为非奇异矩阵, 不可逆矩阵也称为奇异矩阵</p>
+<h3 id="_22">性质</h3>
+<ol>
+<li>$n$ 阶阵 $A$ 可逆等价于 $A$ 有 $n$ 个主元</li>
+<li>方阵的逆唯一</li>
+<li>若 $A$ 可逆, 则 $A\vec x=\vec b$ 有唯一解 $\vec x=A^{-1}\vec b$</li>
+<li>若 $A\vec x=\vec 0$ 有非零解, 则 $A$ 不可逆</li>
+<li>二阶阵 $A=\begin{pmatrix} a&amp;b \ c&amp;d \end{pmatrix}$ 可逆等价于 $ad-bc\neq0$, 且 $A^{-1}=\frac{1}{ad-bc}\begin{pmatrix} d&amp;-b \ -c&amp;a \end{pmatrix}$</li>
+<li>对角阵可逆等价于对角元均不为 $0$</li>
+<li>$(A^{-1})^{-1}=A$</li>
+<li>$(AB)^{-1}=B^{-1}A^{-1}$</li>
+</ol>
+<h2 id="6-lu">6 LU 分解</h2>
+<p>将矩阵分解成一个下三角矩阵和一个上三角矩阵的乘积</p>
+<p>$EA=U, A=E^{-1}U=LU$</p>
+<p>$A=E^{-1}DU=LDU$ 其中 $L$ 和 $U$ 的对角元为 $1$</p>
+<h3 id="lu">LU 分解的存在性和唯一性</h3>
+<p>设可逆矩阵 $A=(a_{ij})_{n\times n}$ 的顺序主子式 </p>
+<p>$A_k = (a_{ij})_{k\times k}(k=1,\cdots ,n)$ </p>
+<p>均为可逆阵, 则 $A$ 有 $LU$ 分解. </p>
+<p>若 $l_{ii}=1, u_{ii}\neq 0(1\le i\le n)$, 则分解唯一</p>
+<p>设 $A$ 是一个 $n$ 阶可逆阵, 则存在置换阵 $P$ 使得 $PA=LU$</p>
+<h3 id="ldlt">对称矩阵的 $LDL^T$ 分解</h3>
+<h2 id="7">7 向量空间</h2>
+<h3 id="_23">向量子空间</h3>
+<p>设 $V$ 是 $\mathbb R^n$ 的非空子集, 且 $V$ 关于向量加法和数乘运算封闭 ($\forall \alpha ,\beta\in V,\forall c_1,c_2\in \mathbb R \Longrightarrow c_1\alpha+c_2\beta\in V$), 则称 $V$ 是 $\mathbb R^n$ 的一个向量子空间</p>
+<h3 id="_24">推广的向量空间的定义</h3>
+<p>在由称为“向量”的元素构成的非空集合 $V$ 中, 若定义了加法和数乘运算, 且对任意向量 $\vec{a}, \vec{b}, \vec{c}$ 及数域 $\mathbb{F}$, $k,l\in \mathbb{F}$ 满足以下八条性质:</p>
+<ol>
+<li>$\vec a + \vec b=\vec b + \vec a$</li>
+<li>$\vec a + (\vec b+\vec c)=(\vec a + \vec b)+\vec c$</li>
+<li>存在零向量 $\vec 0,\ \vec a+\vec 0=\vec a$</li>
+<li>对任意向量 $\vec a$, 存在唯一相反向量 $-\vec a$, 使得 $\vec a+(-\vec a)=\vec 0$</li>
+<li>$1\cdot \vec a=\vec a$</li>
+<li>$(kl)\vec a=k(l\vec a)$</li>
+<li>$k(\vec a+\vec b)=k\vec a+k\vec b$</li>
+<li>$(k+l)\vec a=k\vec a+l\vec a$</li>
+</ol>
+<p>则称 $V$ 为定义在数域 $\mathbb{F}$ 上的向量空间</p>
+<h3 id="_25">列空间</h3>
+<p>$A$ 的列向量所有线性组合构成的空间称为 $A$ 的列空间, 记作 $C(A)$</p>
+<p>$C(A)={c_1 \vec \alpha_1+ c_2 \vec \alpha_2+\cdots+ c_n \vec \alpha_n | c_i\in \mathbb R}={\vec y\in\mathbb R^m | \vec y=A \vec x,\vec x\in \mathbb R^n}$</p>
+<p>$A \vec x=\vec b$ 有解 $\iff \vec b\in C(A)$</p>
+<p>求列空间: 将矩阵化为阶梯形, 阶梯形中主元所在的的列 / 原矩阵中主元所在的列的线性组合就是列空间</p>
+<h3 id="_26">零空间</h3>
+<p>$N(A)={\vec x | A \vec x= \vec 0}\subset \mathbb R^n$</p>
+<p>求零空间: 将矩阵化为阶梯形 / 简化行阶梯形 (RREF), 将主元所在的列对应解 $\vec x$ 位置的数字标记为 1, 通过 $A \vec x=\vec 0$ 确定 $\vec x$ 其他位置的数字得到基础解系, 进行组合得到零空间</p>
+<h3 id="_27">阶梯形</h3>
+<ol>
+<li>$A\overset{行变换}{\longrightarrow}U$, 则 $N(A)=N(U)$</li>
+<li>$B \vec x= \vec 0\Longrightarrow AB \vec x= \vec 0$, 这说明 $N(B)\subset N(AB)$</li>
+<li>$C(AB)\subset C(A)$, 即 $(AB)$ 的每一列是 $A$ 的列向量的线性组合</li>
+<li>设 $A \vec x=\vec b$ 有一个解 $\vec x^<em> $, 则 $A \vec x=\vec b$ 的解集为 $\vec x^</em>+N(A)$</li>
+</ol>
+<h2 id="8">8 求解齐次线性方程组</h2>
+<h3 id="a-vec-xvec-0">$A \vec x=\vec 0$ 的基础解系</h3>
+<ol>
+<li>主元个数 = 未知量个数 ($A$ 的列数)- 自由变量个数</li>
+<li>自由变量个数 = 基础解系中向量的个数 = 解集中线性无关解向量可达到的最大个数</li>
+<li>主元个数 = $A$ 的列向量中线性无关列向量的个数</li>
+</ol>
+<h2 id="9">9 求解非齐次线性方程组</h2>
+<h3 id="_28">极大线性无关组</h3>
+<p>向量组的极大线性无关组: 从原向量组中选出一部分向量构成的线性无关向量组, 并且再填入原向量组中的任一向量就线性相关</p>
+<h3 id="_29">秩</h3>
+<p>向量组的秩: 向量组的极大线性无关组中向量的个数.</p>
+<p>定理: 两组向量若能互相线性表出, 则它们的秩相等</p>
+<p>$A$ 的行秩 = $A$ 的列秩 = $A$ 的秩</p>
+<h3 id="vec-x">求特解 $\vec x^*$</h3>
+<p>将矩阵化为 RREF 后令自由变量为 0, 解出主元对应位置的数字即可</p>
+<h2 id="10">10 无关性、基与维数</h2>
+<h3 id="_30">基与维数</h3>
+<p>$\vec v_1, \vec v_2, \cdots , \vec v_n\in V$ 且 $\vec v_1, \vec v_2, \cdots , \vec v_n$ 线性无关, 且 $\forall \alpha\in V,\alpha$ 是 $\vec v_1, \vec v_2, \cdots , \vec v_n$ 的线性组合, 则称 ${\vec v_1, \vec v_2, \cdots , \vec v_n}$ 是 $V$ 的一组基</p>
+<p>可逆矩阵与一组基相乘得到的还是一组基</p>
+<h3 id="_31">关于秩的不等式</h3>
+<ul>
+<li>$r(AB)\le \min {r(A),r(B)}$</li>
+<li>$r(A)=r(A^T)$</li>
+<li>$r(A+B)\le r(A)+r(B)$</li>
+</ul>
+<h2 id="11">11 四个基本子空间的基与维数</h2>
+<h3 id="_32">四个基本子空间</h3>
+<ul>
+<li>列空间 $C(A)={\vec y\in\mathbb R^m | \vec y=A \vec x,\vec x\in \mathbb R^n}$</li>
+<li>行空间 $C(A^T)={\vec y\in\mathbb R^n | \vec y=A^T \vec x,\vec x\in \mathbb R^m}$</li>
+<li>零空间 $N(A)={\vec x \in \mathbb R^n| A \vec x= \vec 0}$</li>
+<li>
+<p>左零空间 $N(A^T)={\vec x \in \mathbb R^m| A^T \vec x= \vec 0}$</p>
+</li>
+<li>
+<p>$C(A)$ 和 $N(A^T)$ 是 $\mathbb R^m$ 的子空间</p>
+</li>
+<li>$C(A^T)$ 和 $N(A)$ 是 $\mathbb R^m$ 的子空间</li>
+</ul>
+<h3 id="_33">子空间的基和维数</h3>
+<p>$RREF$ 中主元所在的列 / 对应原矩阵中的列是 $C(A)$ 的一组基</p>
+<p>用 "上面行的倍数加到下面行" 化 $A$ 为阶梯形 (忽略中间的全零行), 阶梯形非零行标号对应 $A$ 的行即为 $C(A^T)$ 的一组基</p>
+<ul>
+<li>$A$ 的基础解系构成 $N(A)$ 的一组基</li>
+<li>
+<p>$A^T$ 的基础解系构成 $N(A^T)$ 的一组基</p>
+</li>
+<li>
+<p>$dim(C(A))=dim(C(A^T))=r$</p>
+</li>
+<li>$dim(N(A))=n-r$</li>
+<li>$dim(N(A^T))=m-r$</li>
+</ul>
+<h3 id="_34">维数公式</h3>
+<p>$dim W_1+dim W_2=dim(W_1 \cap W_2)+dim(W_1+W_2)$</p>
+<h2 id="12">12 四个基本子空间的正交性</h2>
+<ul>
+<li>$C(A^T)\perp N(A), C(A^T)+ N(A)=\mathbb R^n$</li>
+<li>$C(A)\perp N(A^T), C(A)+ N(A^T)=\mathbb R^m$</li>
+</ul>
+<h3 id="a-vec-xvec-b-cat">$A \vec x=\vec b$ 在 $C(A^T)$ 中解的唯一性</h3>
+<p>定理: 若 $A \vec x=\vec b$ 有解, 则 $A \vec x=\vec b$ 在 $C(A^T)$ 中有唯一解</p>
+<h2 id="13">13 投影</h2>
+<h3 id="_35">引言</h3>
+<p>若 $A \vec x=\vec b$ 无解, 能够找到 $\hat{\vec x}\in \mathbb R^n$, 使得 $\left | A \hat{\vec x}-\vec b \right |$ 最小</p>
+<p>直观上,$A \vec x=\vec b$ 无解 $\iff \vec  b\notin C(A)$. 上述问题意味着求 $C(A)$ 上距离 $\vec b$ 最近的点 $A\hat{\vec x}$, 它是 $\vec b$ 在 $C(A)$ 上的投影点</p>
+<h3 id="_36">投影矩阵</h3>
+<p>点 $v$ 在平面 $\pi=C(A)$ 上的投影 $p$:</p>
+<p>投影 $\vec p=A\hat{\vec x}\in C(A)\Longrightarrow \vec v- \vec p=\vec e\perp C(A) \Longrightarrow A^T(\vec v-A\hat{\vec x})=\vec 0$</p>
+<p>$\Longrightarrow \hat{\vec x}$ 是 $A^TA \vec x=A^T \vec v$ 的解</p>
+<p>若 $A$ 列满秩,$A^TA$ 是可逆阵 $\Longrightarrow \hat{\vec x}=(A^TA)^{-1}A^T \vec v, \vec p=A(A^TA)^{-1}A^T \vec v$</p>
+<p>将 $P=A(A^TA)^{-1}A^T$ 称为投影矩阵</p>
+<p>若 $A^TA$ 可逆, 投影阵 $P=A(A^TA)^{-1}A^T$ 满足 $P^2=P,P^T=P$</p>
+<p>一般的, 一个矩阵 $P$ 满足 $P^2=P, P^T=P$, 则称 $P$ 为投影矩阵</p>
+<h2 id="14">14 最小二乘法</h2>
+<p>若 $A \vec x=\vec b$ 无解, 将 $A^TA\hat{\vec x}=A^T \vec b$ 称为正规方程组. 解出 $\hat{\vec x}$, 得到 $\vec b$ 在 C(A) 上的投影 $\vec p=A\hat{\vec x}$</p>
+<h2 id="15-gram-schmidt">15 Gram-Schmidt 正交化</h2>
+<p>目标: 给定 $V\in \mathbb R^n$ 为一个子空间,$\vec v_1,\vec v_2,\cdots ,\vec v_k$ 是 $V$ 的一组基, 把它们化成一组正交的向量 $\vec w_1,\vec w_2,\cdots ,\vec w_k$, 满足:
+1. ${\vec w_i}^T\vec w_j=0,i\neq j$
+2. $L(\vec v_1,\vec v_2,\cdots ,\vec v_t)=L(\vec w_1,\vec w_2,\cdots ,\vec w_t),1\le t\le k$,$L(\vec v_1,\vec v_2,\cdots ,\vec v_t)$ 表示 $\vec v_1,\vec v_2,\cdots ,\vec v_t$ 生成的 $V$ 的子空间</p>
+<h3 id="_37">正交化过程</h3>
+<p>$$
+\vec w_1=\vec v_1 \
+\vec w_2=\vec v_2-\frac{{\vec w_1}^T \vec v_2}{{\vec w_1}^T \vec w_1}\vec w_1 \
+\vec w_3=\vec v_3-\frac{{\vec w_1}^T \vec v_3}{{\vec w_1}^T \vec w_1}\vec w_1-\frac{{\vec w_2}^T \vec v_3}{{\vec w_2}^T \vec w_2}\vec w_2
+$$</p>
+<p>再进行单位化 $\vec q_i=\frac{\vec w_i}{\left | \vec w_i \right |}$</p>
+<h3 id="qr">QR 分解</h3>
+<p>举例:</p>
+<p>$$
+A=(\vec v_1,\vec v_2, \vec v_3)=\begin{pmatrix}1&amp;1&amp;0 \ 1&amp;0&amp;1 \ 0&amp;1&amp;1 \end{pmatrix}
+$$</p>
+<p>$$
+A=QR=\begin{pmatrix} \frac{1}{\sqrt 2}&amp;\frac{1}{\sqrt 6}&amp;-\frac{1}{\sqrt 3} \
+\frac{1}{\sqrt 2}&amp;-\frac{1}{\sqrt 6}&amp;\frac{1}{\sqrt 3}\0&amp;\frac{2}{\sqrt 6}&amp;\frac{1}{\sqrt 3} \end{pmatrix}\begin{pmatrix} \frac{2}{\sqrt 2}&amp;\frac{1}{\sqrt 2}&amp;\frac{1}{\sqrt 2} \
+0&amp;\frac{3}{\sqrt 6}&amp;\frac{1}{\sqrt 6}\0&amp;0&amp;\frac{2}{\sqrt 3} \end{pmatrix}
+$$</p>
+<p>$R$ 是对角元为正数的上三角矩阵</p>
+<h2 id="16">16 行列式的基本性质</h2>
+<h3 id="_38">行列式的几何意义</h3>
+<ul>
+<li>二阶行列式的几何意义: 平面四边形的“有向”面积</li>
+<li>三阶行列式的几何意义: 平行六面体的“有向”体积</li>
+</ul>
+<h3 id="_39">行列式性质</h3>
+<ol>
+<li>单位阵行列式为 $1$</li>
+<li>给一行乘 $c$, 行列式值乘 $c$</li>
+<li>一行元素可以拆为两数之和进而分为两个矩阵</li>
+<li>交换任意两行行列式值取反</li>
+<li>行列互换行列式值不变</li>
+</ol>
+<p>推论:
+1. 两行成比例, 行列式值为 $0$
+2. 将一行的倍数加到另一行, 行列式值不变</p>
+<h3 id="_40">行列式与初等变换</h3>
+<ol>
+<li>行列式不为零等价于矩阵可逆</li>
+<li>两 $n$ 阶方阵乘积的行列式 = 各自行列式的乘积</li>
+</ol>
+<h2 id="17">17 行列式的计算</h2>
+<p>$M_{ij}$ 是 $A$ 划去第 $i$ 行第 $j$ 列得到的 $n-1$ 阶矩阵 </p>
+<p>余子式: $\det M_{ij}$</p>
+<p>代数余子式: $C_{ij}=(-1)^{i+j}\det M_{ij}$</p>
+<h3 id="_41">行列式展开定理</h3>
+<p>$$
+\det A=|{a_{ij}}|<em> {n\times n}=a</em> {i1}C_ {i1}+a_{i2}C_{i2}+\cdots+a_{in}C_{in},\forall i,j=1,\cdots,n
+$$</p>
+<h3 id="_42">典型计算方法</h3>
+<p>化为上三角或下三角, 计算对角元乘积即为行列式值</p>
+<p>通过行列式展开定理展开进行不断降阶后计算行列式值</p>
+<h3 id="n">n 阶范德蒙德行列式</h3>
+<p>$$ 
+D_{n}=\left|\begin{array}{ccccc}
+1 &amp; 1 &amp; 1 &amp; \cdots &amp; 1 \
+x_{1} &amp; x_{2} &amp; x_{3} &amp; \cdots &amp; x_{n} \
+x_{1}^{2} &amp; x_{2}^{2} &amp; x_{3}^{2} &amp; \cdots &amp; x_{n}^{2} \
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \
+x_{1}^{n-1} &amp; x_{2}^{n-1} &amp; x_{3}^{n-1} &amp; \cdots &amp; x_{n}^{n-1}
+\end{array}\right|=\prod_{1 \leq i&lt;j \leq n}\left(x_{j}-x_{i}\right)
+$$</p>
+<h2 id="18-cramer">18 Cramer 法则及行列式的几何意义</h2>
+<h3 id="_43">代数余子式的重要性质</h3>
+<p>$$
+\sum_{k=1}^{n}a_{ik}C_{jk}=\left{\begin{array}{c}
+D,i=j \ 0,i\neq j
+\end{array}
+\right.
+$$</p>
+<h3 id="_44">伴随矩阵</h3>
+<p>下面的矩阵称为 $A$ 的伴随矩阵</p>
+<p>$$
+A^*=adj(A)=\left(\begin{array}{cccc}
+C_{11} &amp; C_{21} &amp; \cdots &amp; C_{n 1} \
+C_{12} &amp; C_{22} &amp; \cdots &amp; C_{n 2} \
+\vdots &amp; \vdots &amp; &amp; \vdots \
+C_{1 n} &amp; C_{2 n} &amp; \cdots &amp; C_{n n}
+\end{array}\right)
+$$</p>
+<p>$(A^*)^T$:$A$ 的代数余子式矩阵</p>
+<h3 id="_45">求逆矩阵公式</h3>
+<p>$A^{-1}=\frac{adj(A)}{|A|}$</p>
+<h3 id="_46">线性方程组的公式解</h3>
+<p>一般地, 若不使用行列式,$A$ 可逆时,$A \vec x=\vec b$ 解的表达式将非常复杂.</p>
+<p>定理 (Cramer's Rule): 设 $A$ 是 $n$ 阶可逆阵,$\vec b \in \mathbb{R}^{n}$, 令 $B_{k}$ 是将 $A$ 的 第 $k$ 列换成向量 $\vec b$ 后所得的矩阵. 则 $A \vec {x}=\vec {b}$ 的唯一解为</p>
+<p>$$
+\vec {x}=\left(x_{1}, \cdots, x_{n}\right)^{T}, \quad x_{1}=\frac{\operatorname{det}\left(B_{1}\right)}{\operatorname{det} A}, \cdots, x_{n}=\frac{\operatorname{det}\left(B_{n}\right)}{\operatorname{det} A}
+$$</p>
+<h3 id="_47">向量的叉积 / 外积</h3>
+<p>$\vec u=\begin{pmatrix}u_1\u_2\u_3\end{pmatrix},\vec v=\begin{pmatrix}v_1\v_2\v_3\end{pmatrix}$,$\vec u\times \vec v$ 是与 $\vec u$ 和 $\vec v$ 都垂直且成右手关系的向量</p>
+<p>有 $\vec u\times \vec v=-\vec v\times \vec u$</p>
+<p>$(\vec u_1+\vec u_2)\times \vec v=\vec u_1\times \vec v+\vec u_2\times \vec v$</p>
+<h3 id="_48">混合积</h3>
+<p>混合积 $\vec u\times \vec v\cdot \vec w$ , 几何上表示三向量组成的平行六面体的有向体积.</p>
+<p>性质: $\vec u\times \vec v\cdot \vec w=\vec v\times \vec w\cdot \vec u=\vec w\times \vec u\cdot \vec v$</p>
+<p>定理: $\vec u\times \vec v\cdot \vec w=\det (\vec u,\vec v,\vec w)$</p>
+<h2 id="19">19 特征值和特征向量</h2>
+<h3 id="_49">特征值</h3>
+<p>对 $A$, 若存在数 $\lambda$ 和非零向量 $\vec x$, 满足 $A \vec x=\lambda \vec x$, 则称 $\lambda$ 为 $A$ 的特征值,$\vec x$ 为 $A$ 的属于特征值 $\lambda$ 的特征向量数 $\lambda$ 为方阵 $A$ 的特征值 $\iff \det (A-\lambda I)=0$</p>
+<p>$\det (A-\lambda I)=0$ 是关于 $\lambda$ 的多项式, 求解多项式得到 $\lambda$, 之后将解出的 $\lambda$ 分别带回 $(A-\lambda I)\vec x=\vec 0$ 即可解出特征值对应的特征向量</p>
+<p>举例: 投影矩阵的特征值是 $0$ 和 $1$</p>
+<h3 id="_50">特征值的性质</h3>
+<p>$\sum_{i=1}^{n}\lambda_i=tr(A)=\sum_{i=1}^{n}a_{ii}$</p>
+<p>$\prod_{i=1}^n=\det A$</p>
+<h2 id="20">20 矩阵的对角化</h2>
+<p>设 $n\times n$ 矩阵 $A$ 有 $n$ 个线性无关的特征向量 $\vec x_1 ,\vec x_2,\cdots, \vec x_n, A \vec x_i=\lambda_i \vec x_i$, 令 $S=(\vec x_1 ,\vec x_2,\cdots, \vec x_n)$, 则 $S^{-1}AS$ 是一个对角矩阵 $\Lambda$, 其对角元素是 $A$ 的特征值
+$$S^{-1}AS=\Lambda=\begin{pmatrix}\lambda_1&amp; &amp; \ &amp; \ddots&amp; \ &amp; &amp;\lambda_n\end{pmatrix}$$</p>
+<p>若存在可逆矩阵 $S$, 使得 $S^{-1}AS$ 为对角矩阵, 则称矩阵 $A$ 是可对角化的</p>
+<p>$n\times n$ 矩阵 $A$ 可对角化的充要条件是 $A$ 有 $n$ 个线性无关的特征向量 $\vec x_1 ,\vec x_2,\cdots, \vec x_n, A \vec x_i=\lambda_i \vec x_i$</p>
+<p>定理:</p>
+<p>设 $\vec \lambda_1 ,\vec \lambda_2,\cdots, \vec \lambda_k$ 是 $A$ 的互异特征值,$\vec x_1 ,\vec x_2,\cdots, \vec x_k$ 是相应特征向量, 则 $\vec x_1 ,\vec x_2,\cdots, \vec x_k$ 线性无关</p>
+<p>推论:</p>
+<p>具有 $n$ 个两两互异特征值的 $n\times n$ 矩阵可以对角化</p>
+<h3 id="_51">特征值的代数重数和几何重数</h3>
+<p>定义: 设 $\operatorname{det}(A-\lambda I)=\left(\lambda_{1}-\lambda\right)^{n_{1}} \cdots\left(\lambda_{k}-\lambda\right)^{n_{k}}$, 其中 $\lambda_{i} \neq \lambda_{j}(i \neq j)$. 称 $n_{i}$ 为特征值 $\lambda_{i}$ 的代数重数, 记作 $AM\left(\lambda_{i}\right)=n_{i}$. 称 $\operatorname{dim} N\left(A-\lambda_{i} I\right)$ 为特征值 $\lambda_{i}$ 的几何重数, 记作 $G M\left(\lambda_{i}\right)=\operatorname{dim} N\left(A-\lambda_{i} I\right)$</p>
+<p>$G M\left(\lambda_{i}\right)\le AM\left(\lambda_{i}\right)$</p>
+<p>定理: 复方阵 $A$ 可对角化 $\iff$ 对任意特征值 $\lambda_i$ ,$G M\left(\lambda_{i}\right)= AM\left(\lambda_{i}\right)$</p>
+<h3 id="_52">对角化的应用</h3>
+<p>快速计算 $A^k$</p>
+<h2 id="22">22 实对阵矩阵</h2>
+<ul>
+<li>定理: 实对称矩阵的特征值都是实数</li>
+<li>定理: 任何实对称矩阵都正交相似于对角阵, 即对实对称阵 $A$, 存在正交阵 $Q$, 使 $Q^TAQ$ 为对角阵</li>
+</ul>
+<h2 id="1_1">1 正定矩阵</h2>
+<p>特征值全是正数的实对称矩阵称为正定矩阵</p>
+<h3 id="a">实对称矩阵 A 正定的充要条件</h3>
+<ol>
+<li>$A$ 的所有特征值均为正</li>
+<li>${\vec x}^TA \vec x&gt;0$ 对所有非零实向量 $\vec x$ 成立</li>
+<li>$A$ 的所有顺序主子式都是正的</li>
+<li>(只做上面行的倍数加到下面行) $n$ 阶阵 $A$ 有 $n$ 个主元都是正的</li>
+<li>存在列满秩矩阵 $R$, 使得 $A=R^TR$</li>
+<li>$A$ 的所有主子式都是正的</li>
+</ol>
+<p>在 $n$ 阶行列式中任选 $k$ 行: 第 $i_1,i_2,\cdots,i_k$ 行, 再取相应的第 $i_1,i_2,\cdots,i_k$ 列. 由上述选取的 $k$ 行 $k$ 列交汇处元素组成的新矩阵称
+为 $k$ 阶主子阵; 主子阵的行列式, 称为 $n$ 阶行列式的一个 $k$ 阶主子式.
+在 $n$ 阶行列式中由第 $1,\cdots,k$ 行和第 $1,\cdots,k$ 列所确定的主子式称为 $k$ 阶顺序主子式.</p>
+<h3 id="_53">半正定矩阵</h3>
+<p>若实对称矩阵 $A$ 的特征值均非负，那么称 $A$ 为半正定矩阵</p>
+<h3 id="_54">半正定矩阵的判别条件</h3>
+<ol>
+<li>$A$ 的所有特征值 $\lambda_i$ 均非负</li>
+<li>${\vec x}^TA \vec x≥0$ 对所有实向量 $\vec x$ 成立.</li>
+<li>存在矩阵 $R$, 使得 $A=R^TR$ ($R$ 可能是不可逆阵)</li>
+<li>A 的所有主子式均非负</li>
+</ol>
+<h3 id="_55">二次型</h3>
+<p>对 $n$ 维实向量 $\vec x \in \mathbb R ^{n}$ 及 n 阶实矩阵 A, 称数值函数</p>
+<p>$$
+f(\mathbf{x})=\mathbf{x}^{T} A \mathbf{x}=\mathbf{x}^{T}\left(a_{i j}\right)<em> {n \times n} \mathbf{x}=\sum</em> {i=1}^{n} \sum_{j=1}^{n} a_{i j} x_{i} x_{j}
+$$</p>
+<p>为一个 (实) 二次型, 它是关于 $x_1,\cdots,x_n$ 的二次齐次多项式</p>
+<h3 id="_56">主轴定理</h3>
+<p>设 $A$ 是一个 $n$ 阶实对称矩阵, 则存在正交变量代换 $\mathbf x = Q\mathbf y$, 使得二次型</p>
+<p>$$
+\mathbf{x}^{T} A \mathbf{x}=\mathbf{y}^{T} \Lambda \mathbf{y}=\sum_{i=1}^{n} \lambda_{i} y_{i}^{2}
+$$</p>
+<p>变为对角形的二次型, 其中 $Q^{T} A Q=\Lambda=\operatorname{diag}\left(\lambda_{1}, \cdots, \lambda_{n}\right)$, $\lambda_{1}, \cdots, \lambda_{n}$ 为 $A$ 的所有特征值.</p>
+<h3 id="_57">二次型的分类</h3>
+<p>一个二次型 $f(\mathbf{x})=\mathbf{x}^{T} A \mathbf{x}$ 是:
+* 正定的, 若对所有 $\mathbf{x} \neq \mathbf{0}$, 有 $f(\mathbf{x})&gt;0$ $\iff A$ 的所有特征值都是正数
+* 负定的, 若对所有 $\mathbf{x} \neq \mathbf{0}$, 有 $f(\mathbf{x})&lt;0$ $\iff A$ 的所有特征值都是负数
+* 不定的, 若 $f(\mathbf{x})$ 既有正值, 又有负值 $\iff A$ 既有正特征值, 又有负特征值
+* 半正定的, 若对所有 $\mathbf x$, 有 $f(\mathbf{x}) \geq 0$
+* 半负定的, 若对所有 $\mathbf x$, 有 $f(\mathbf{x}) \leq 0$</p>
+<h3 id="_58">矩阵的合同</h3>
+<p>两个 $n$ 阶矩阵 $A$,$B$, 若存在 $n$ 阶可逆矩阵 $C$, 使得 $C^{T} A C=B$, 则称矩阵 $A$ 与 $B$ 合同, 记为 $A\cong B$ </p>
+<p>主轴定理可表述为: 任何实对称矩阵都正交合同于对角阵</p>
+<h2 id="3_1">3 奇异值分解</h2>
+<p>引言: 如何“对角化”$m\times n$ 矩阵</p>
+<h3 id="_59">奇异值分解</h3>
+<p>设 $A$ 是一个 $m\times n$ 矩阵, 则存在 $m$ 阶正交矩阵 $U$ 和 $n$ 阶正交矩阵 $V$, 满足:</p>
+<p>$$
+A=U\begin{pmatrix}\sigma_1&amp;&amp;&amp;\&amp;\ddots&amp;&amp;\&amp;&amp;\sigma_2&amp;\&amp;&amp;&amp;\vec 0\end{pmatrix}V^T=U\Sigma V^T
+$$</p>
+<p>其中 $r=rank(A)$. 习惯上, 取 $\sigma_1≥\sigma_2≥\cdots≥\sigma_r≥0$, 称 $\sigma_1, \sigma_2 ,\cdots,\sigma_r$ 为奇异值, 称 $U$ 和 $V$ 的前 $r$ 列向量为奇异向量. 这个分解称为奇异值分解, 简称 $SVD$.</p>
+<p>有 $A \vec v_i=\sigma_i \vec u_i$,$A^T \vec u_i=\sigma_i \vec v_i$</p>
+<p>有 $A^T A \vec v_i={\sigma_i}^2 \vec v_i$</p>
+<p>$\vec u_i=\frac{A \vec v_i}{\sigma_i}$</p>
+<ul>
+<li>${\vec u_1, \cdots, \vec u_r}$ 为 $C(A)$ 的一组单位正交基</li>
+<li>${\vec v_1, \cdots, \vec v_r}$ 为 $C(A^T)$ 的一组单位正交基</li>
+</ul>
+<h3 id="_60">奇异值分解的应用</h3>
+<p>设 $A=U\Sigma V^T$ 是 $m\times n$ 实矩阵 $A$ 的奇异值分解，$r=r(A)$, 则</p>
+<ul>
+<li>正交矩阵 $U$ 的前 $r$ 列是 $C(A)$ 的一组标准正交基;</li>
+<li>正交矩阵 $U$ 的后 $(m-r)$ 列是 $N(A^T)$ 的一组标准正交基;</li>
+<li>正交矩阵 $V$ 的前 $r$ 列是 $C(A^T)$ 的一组标准正交基;</li>
+<li>正交矩阵 $V$ 的后 $(n-r)$ 列是 $N(A)$ 的一组标准正交基.</li>
+</ul>
+<h2 id="4-i">4 线性变换 I</h2>
+<p>设 $V,W$ 是数域 $\mathbb F$ 上的向量空间,$V$ 到 $W$ 的映射 $T:V\to W$ 若保持加法和数乘计算, 即
+$T(\vec x+ \vec y)=T(\vec x)+T(\vec y),\ T(k \vec x)=kT(\vec x), \ \forall \vec x,\vec y\in V,\ \forall k\in \mathbb F$, 则称 $T:V\to W$ 是一个线性变换</p>
+<p>向量空间 $V$ 到 $W$ 的全体线性变换构成一个向量空间, 记为 $\mathcal L (V,W)$</p>
+<h3 id="_61">线性变换的乘积</h3>
+<p>定义: 设 $\tau \in \mathcal{L}(U, V), \sigma \in \mathcal{L}(V, W) .$ 定义线性变换的乘积 $\sigma \tau: U \rightarrow W$ 为:</p>
+<p>$$ 
+(\sigma \tau)(\mathbf{u})=\sigma(\tau(\mathbf{u})), \quad \forall \mathbf{u} \in U
+$$</p>
+<p>直接验证得 $\sigma \tau \in \mathcal{L}(U, W)$</p>
+<h3 id="_62">线性变换的逆</h3>
+<p>设 $\tau \in \mathcal{L}(V, V)$, 若存在 $\tau \in \mathcal{L}(V, V)$ 使得 $\sigma \tau=\tau \sigma=I$, 则称 $\sigma$ 是可逆线性变换, $\tau$ 为 $\sigma$ 的逆变换</p>
+<h3 id="_63">线性变换的矩阵表示</h3>
+<p>$$
+T\left(\mathbf{v}<em> {1}, \ldots, \mathbf{v}</em> {n}\right)=\left(T\left(\mathbf{v}<em> {1}\right), \ldots, T\left(\mathbf{v}</em> {n}\right)\right)=\left(\mathbf{w}<em> {1}, \ldots, \mathbf{w}</em> {m}\right)\left(\begin{array}{cccc}a_{11} &amp; a_{12} &amp; \cdots &amp; a_{1 n} \ a_{21} &amp; a_{22} &amp; \cdots &amp; a_{2 n} \ \vdots &amp; \vdots &amp; &amp; \vdots \ a_{m 1} &amp; a_{m 2} &amp; \cdots &amp; a_{m n}\end{array}\right)
+$$</p>
+<p>称 $m\times n$ 矩阵 $A$ 为线性变换 $T$ 在 $V$ 中给定基 $\vec v_1,\cdots ,\vec v_n$ 和 W 中给定基 $\vec w_1,\cdots ,\vec w_m$ 下的矩阵表示</p>
+<p>注: $A$ 中第 $j$ 列恰是 $T(\vec v_j)$ 在基 $\vec w_1,\cdots ,\vec w_m$ 下的坐标 '</p>
+<p>定理: 设 $\vec v_1,\cdots ,\vec v_n$ 是 $n$ 维空间 $V$ 的一组基,$\vec w_1,\cdots ,\vec w_m$ 是 $m$ 维向量空间 $W$ 的一组基,$A$ 是任一 $m\times n$ 矩阵, 则有唯一的线性变换 $\sigma$ 满足:$\sigma (\vec v_1,\cdots ,\vec v_n)=(\vec w_1,\cdots ,\vec w_m)A$</p>
+<h2 id="5-ii">5 线性变换 II</h2>
+<p>恒同变换: 对应矩阵 $I_n$</p>
+<ul>
+<li>有线性变换 $\sigma:V\to W$</li>
+<li>线性变换的核:$\ker \sigma={\vec v\in V | \sigma (\vec v)=\vec 0}$</li>
+<li>
+<p>线性变换的像 (值域):$\operatorname{Im} \sigma = {\sigma ( \vec v)|\vec v\in V}$</p>
+</li>
+<li>
+<p>$\dim (\ker \sigma)$ 称为线性变换 $\sigma$ 的零度</p>
+</li>
+<li>$\dim (\operatorname{Im} \sigma)$ 称为线性变换 $\sigma$ 的秩</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022 杨远航
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    <a href="https://space.bilibili.com/1793231437" target="_blank" rel="noopener" title="Bilibili | 沐ca" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M488.6 104.1c16.7 18.1 24.4 39.7 23.3 65.7v202.4c-.4 26.4-9.2 48.1-26.5 65.1-17.2 17-39.1 25.9-65.5 26.7H92.02c-26.45-.8-48.21-9.8-65.28-27.2C9.682 419.4.767 396.5 0 368.2V169.8c.767-26 9.682-47.6 26.74-65.7C43.81 87.75 65.57 78.77 92.02 78h29.38L96.05 52.19c-5.75-5.73-8.63-13-8.63-21.79 0-8.8 2.88-16.06 8.63-21.797C101.8 2.868 109.1 0 117.9 0s16.1 2.868 21.9 8.603L213.1 78h88l74.5-69.397C381.7 2.868 389.2 0 398 0c8.8 0 16.1 2.868 21.9 8.603 5.7 5.737 8.6 12.997 8.6 21.797 0 8.79-2.9 16.06-8.6 21.79L394.6 78h29.3c26.4.77 48 9.75 64.7 26.1zm-38.8 69.7c-.4-9.6-3.7-17.4-10.7-23.5-5.2-6.1-14-9.4-22.7-9.8H96.05c-9.59.4-17.45 3.7-23.58 9.8-6.14 6.1-9.4 13.9-9.78 23.5v194.4c0 9.2 3.26 17 9.78 23.5s14.38 9.8 23.58 9.8H416.4c9.2 0 17-3.3 23.3-9.8 6.3-6.5 9.7-14.3 10.1-23.5V173.8zm-264.3 42.7c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.2 6.3-14 9.5-23.6 9.5-9.6 0-17.5-3.2-23.6-9.5-6.1-6.3-9.4-14-9.8-23.2v-33.3c.4-9.1 3.8-16.9 10.1-23.2 6.3-6.3 13.2-9.6 23.3-10 9.2.4 17 3.7 23.3 10zm191.5 0c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.1 6.3-14 9.5-23.6 9.5-9.6 0-17.4-3.2-23.6-9.5-7-6.3-9.4-14-9.7-23.2v-33.3c.3-9.1 3.7-16.9 10-23.2 6.3-6.3 14.1-9.6 23.3-10 9.2.4 17 3.7 23.3 10z"/></svg>
+    </a>
+  
+    
+    
+    <a href="https://github.com/Muamu925" target="_blank" rel="noopener" title="GitHub | Muamu925" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.tabs", "navigation.top", "navigation.indexes", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.8492ddcf.min.js"></script>
+      
+    
+  </body>
+</html>

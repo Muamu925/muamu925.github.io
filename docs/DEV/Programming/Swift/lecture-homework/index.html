@@ -1,0 +1,1033 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="十四粒灰的个人网站">
+      
+      
+        <meta name="author" content="杨远航">
+      
+      
+        <link rel="canonical" href="https://muamu925.github.io/14grey/docs/DEV/Programming/Swift/lecture-homework/">
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.1, mkdocs-material-8.5.7">
+    
+    
+      
+        <title>Swift教学课后作业 - 十四粒灰的官方网站</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.20d9efc8.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#swift" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../../../.." title="十四粒灰的官方网站" class="md-header__button md-logo" aria-label="十四粒灰的官方网站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            十四粒灰的官方网站
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Swift教学课后作业
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="orange"  aria-label="切换至夜间模式"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="切换至夜间模式" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="orange"  aria-label="切换至日间模式"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="切换至日间模式" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/Muamu925/14grey.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    十四粒灰
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../../../index.md" class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../../../about.md" class="md-tabs__link">
+      About
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="十四粒灰的官方网站" class="md-nav__button md-logo" aria-label="十四粒灰的官方网站" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    十四粒灰的官方网站
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/Muamu925/14grey.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    十四粒灰
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../index.md" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../about.md" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    基础
+  </a>
+  
+    <nav class="md-nav" aria-label="基础">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    查文档
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    强类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    可选类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    统计各个专业的人数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    进阶
+  </a>
+  
+    <nav class="md-nav" aria-label="进阶">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#error-handling" class="md-nav__link">
+    Error Handling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log" class="md-nav__link">
+    Log()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    其他
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    答案
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    基础
+  </a>
+  
+    <nav class="md-nav" aria-label="基础">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    查文档
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    强类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    可选类型
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    统计各个专业的人数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    进阶
+  </a>
+  
+    <nav class="md-nav" aria-label="进阶">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#error-handling_1" class="md-nav__link">
+    Error Handling
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#log_1" class="md-nav__link">
+    Log()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    其他
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  <a href="https://github.com/Muamu925/14grey.github.io/edit/main/docs/docs/DEV/Programming/Swift/lecture-homework.md" title="编辑此页" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+<h1 id="swift">Swift教学课后作业</h1>
+<blockquote>
+<p>2021.10.17 添加作业内容</p>
+<p>2021.10.25 更新作业答案</p>
+<p>作业：<a href="https://github.com/Yang-Xijie">杨希杰</a></p>
+</blockquote>
+<h2 id="introduction">Introduction</h2>
+<ul>
+<li>基础部分为基本要求，进阶部分可自选；题目前有<code>Optional</code>也是选做。</li>
+<li>复制下面对应部分的作业，在括号或空白处中<strong>填空</strong>。</li>
+</ul>
+<h2 id="_1">基础</h2>
+<h3 id="_2">查文档</h3>
+<p>〇 Swift官网的网址是（）。我们一般会在官网上查找Swift的文档，即Language Guide，网址为（）。</p>
+<p>〇 在Xcode中打开开发者文档的方法是：在菜单栏（）中点击（），或使用快捷键（）。</p>
+<h3 id="_3">强类型</h3>
+<p>观察下面的代码：（提示：观察不出来可以实际运行）</p>
+<pre><code class="language-swift">let a = 1
+a = 5
+var b = 4
+b = 4.5
+</code></pre>
+<p>〇 代码第二行报错的原因是（）。</p>
+<p>〇 代码第四行报错的原因是（）。</p>
+<h3 id="_4">可选类型</h3>
+<p>〇 如果变量<code>a</code>是一个可选类型，我们可以通过方式（）实现：如果其不为空，则取出真实值赋给<code>b</code>；若其为空，则令<code>b</code>为<code>0</code>：</p>
+<p>A. <code>let b = a!</code></p>
+<p>B. <code>let b = (a != nil) ? a : 0</code></p>
+<p>C. <code>if let b = a { ... } else { let b = 0  ... }</code></p>
+<p>D. <code>if a != nil { b = a!  ... } else { b = 0  ... }</code></p>
+<h3 id="_5">函数</h3>
+<p>〇 一个函数可以通过（）返回多个值。</p>
+<p>〇 编写程序，计算10的阶乘并输出结果。要求：使用<code>...</code>运算符。【循环 区间生成运算符】
+（</p>
+<p>）</p>
+<p>〇 回顾函数闭包的相关知识，补全下列代码：</p>
+<pre><code class="language-swift">let fruits: [String] = [&quot;apple&quot;, &quot;orange&quot;, &quot;pear&quot;, &quot;pineapple&quot;]
+// 希望打印出 [&quot;pineapple&quot;, &quot;orange&quot;, &quot;apple&quot;, &quot;pear&quot;]
+// 即Array中的所有字符串按照长度从大到小排序
+
+// TODO
+</code></pre>
+<p>提示：</p>
+<p>阅读函数<code>sorted(by:)</code>的<a href="https://developer.apple.com/documentation/swift/sequence/2907222-sorted">文档</a>（<code>func sorted(by areInIncreasingOrder: (Self.Element, Self.Element) -&gt; Bool) -&gt; [Self.Element]</code>）</p>
+<p>如果你想直接在大括号中写函数的话，<code>$0</code>和<code>$1</code>可以分别指代第1个和第2个参数。</p>
+<h3 id="_6">统计各个专业的人数</h3>
+<pre><code class="language-swift">import Foundation
+
+enum Major {
+    case A
+    case B
+    case C
+    case D
+}
+
+struct Student {
+    var name: String
+    var major: Major
+}
+
+let studentList: [Student] = [
+    Student(name: &quot;Alice&quot;, major: .A),
+    Student(name: &quot;Bob&quot;, major: .B),
+    Student(name: &quot;Carl&quot;, major: .C),
+    Student(name: &quot;David&quot;, major: .D),
+    Student(name: &quot;Eric&quot;, major: .A),
+    Student(name: &quot;Fred&quot;, major: .D),
+    Student(name: &quot;Gavin&quot;, major: .C),
+    Student(name: &quot;Henry&quot;, major: .D),
+    Student(name: &quot;Ivy&quot;, major: .B),
+    Student(name: &quot;Janet&quot;, major: .D),
+    Student(name: &quot;Kathy&quot;, major: .A)
+]
+
+// 题目：
+// 统计studentList中各个专业的同学名字和总数目，并按照你倾向的方式打印。
+
+// TODO
+</code></pre>
+<h2 id="_7">进阶</h2>
+<h3 id="error-handling">Error Handling</h3>
+<p>执行如下程序，结果为（</p>
+<p>）（共两行），简要解释输出结果：（）。</p>
+<pre><code class="language-swift">import Foundation
+
+struct Printer {
+    var paper: Int // 0 - 400
+    var ink: Float // 0 - 100 percentage
+    let inkPerPage: Float = 0.1
+
+    enum error: Error {
+        case outOfPaper
+        case noInk
+    }
+}
+
+struct File {
+    var name: String
+    var page: Int
+}
+
+func printFile(_ file: File, with printer: inout Printer) throws {
+    if printer.paper &lt;= file.page {
+        throw Printer.error.outOfPaper
+    } else if printer.ink &lt;= Float(file.page) * printer.inkPerPage {
+        throw Printer.error.noInk
+    } else {
+        printer.paper -= file.page
+        printer.ink -= Float(file.page) * printer.inkPerPage
+        print(&quot;File \&quot;\(file.name)\&quot; was successfully printed! (paper: \(printer.paper), ink: \(String(format: &quot;%2.1f&quot;, printer.ink))%)&quot;)
+    }
+}
+
+var myHomework = File(name: &quot;my homework&quot;, page: 4)
+var myReport = File(name: &quot;my report&quot;, page: 5)
+var myPrinter = Printer(paper: 7, ink: 80)
+do {
+    try printFile(myHomework, with: &amp;myPrinter)
+    try printFile(myReport, with: &amp;myPrinter)
+} catch {
+    print(error)
+}
+</code></pre>
+<h3 id="log">Log()</h3>
+<p>新建<code>Project - macOS - Command Line Tool</code>，复制运行如下代码：</p>
+<pre><code class="language-swift">import Foundation // 1
+
+struct Log: CustomStringConvertible { // 3
+    public var time: String // 4
+    public var log: String // 5
+
+    init(filePath: String = #file, line: Int = #line, column: Int = #column, funcName: String = #function) { // 7
+        let fileName = (filePath as NSString).lastPathComponent // 8
+
+        let formatter = DateFormatter() // 10
+        formatter.dateStyle = .none // 11
+        formatter.timeStyle = .medium // 12
+        time = formatter.string(from: Date()) // 13
+
+        log = &quot;\(fileName)(\(line),\(column)) \(funcName)&quot; // 15
+    }
+
+    public var description: String { // 18
+        return &quot;[\(time) \(log)]\n\t&quot; // 19
+    }
+
+    public var string: String { // 22
+        description // 23
+    } // 24
+
+    public var error: String { // 26
+        &quot;[ERROR] &quot; + description // 27
+    }
+}
+
+func MyPrint() { // 31
+    print(Log().string + &quot;Hello, world!&quot;) // 32
+    print(Log().error + &quot;Bye, world.&quot;) // 33
+}
+
+MyPrint() // 36
+
+// Literal        Type     Value
+//
+// #file          String   The name of the file in which it appears.
+// #line          Int      The line number on which it appears.
+// #column        Int      The column number in which it begins.
+// #function      String   The name of the declaration in which it appears.
+</code></pre>
+<p>〇 该程序的运行结果是（</p>
+<p>）。</p>
+<p>〇 第3行新建了一个结构体名为Log，后面冒号跟着的<code>CustomStringConvertible</code>是（），在结构体内部的变量（）完成了<code>CustomStringConvertible</code>。</p>
+<p>〇 （Optional）可以去掉第4行的<code>public</code>关键字吗？（）</p>
+<p>〇 第7行中，<code>filePath: String = #file</code>中<code>filePath</code>是参数名称，冒号后面的<code>String</code>是这个参数的（），<code>=</code>后面跟的是这个参数的（）。</p>
+<p>〇 （Optional）第8行中，<code>(filePath as NSString)</code>是在做（）。</p>
+<p>〇 第12行中出现了<code>.medium</code>，它们是（）的一种。</p>
+<p>〇（Optional）第12行如果要补全<code>.</code>前面的内容可以添加（）。提示：查看<code>.medium</code>的文档。</p>
+<p>〇 第13行中的<code>formatter.string(from: )</code>，这里string是一个（），看到<code>from</code>这一个介词可以推测<code>from</code>是参数的（）。</p>
+<p>〇 第19行的<code>\n</code>和<code>\t</code>是（）字符。</p>
+<p>〇 第22行定义了变量string，我们将其称作（计算属性）。将22 23 24这三行代码补充完整：（</p>
+<p>）。</p>
+<p>〇 第32行的<code>Log()</code>（）了一个结构体实例。</p>
+<p>〇 第32行的<code>+</code>表示（）。</p>
+<p>〇 第36行调用了函数<code>MyPrint</code>，该函数有（）个参数，（）个返回值。</p>
+<p>〇 （Optional）尝试如下步骤在<code>Xcode</code>中添加<code>code snippet</code>：</p>
+<p>To create a <code>code snippet</code>:</p>
+<ol>
+<li>Select: print(Log().string + "&lt;\hashinfo\hash&gt;")</li>
+<li>Go to <code>Xcode -&gt; Editor -&gt; Create Code Snippet</code>.</li>
+<li>Change <code>\hash</code> to <code>#</code>.</li>
+<li>Set title as <code>Log()</code> and <code>completion</code> as <code>print</code>.</li>
+</ol>
+<p>Try typing <code>print</code> and select the code snippet.</p>
+<h2 id="_8">其他</h2>
+<p>〇 （Optional）如果我们想导入并使用一个开源的第三方<code>Swift Package</code>，需要点击<code>Xcode</code>菜单栏（）（写出层级关系），然后添加该<code>Swift Package</code>的地址。之后在需要用到该包的代码文件最开始写上<code>import</code>语句就可以了。</p>
+<p>〇 <code>Swift</code>有一个非常好用的格式化工具<a href="https://github.com/nicklockwood/SwiftFormat">GitHub | SwiftFormat</a>，阅读其README说明，在自己的Xcode中添加该格式化工具并尝试使用。你在你的<code>Mac</code>上安装了吗？（）（安装了/还没/下次一定）。</p>
+<p>〇 （Optional）<code>Swift</code>目前的最新版本是<code>5.5</code>，这一个版本引入的一个重要更新是Concurrency WWDC链接<a href="https://developer.apple.com/wwdc21/10132">WWDC21 | Meet async/await in Swift</a>，感兴趣的同学可以自行查看。</p>
+<p>〇 （Optional）如果你还没有学习过Git，可以花时间掌握一下这个合作开发的必备工具。社团往期培训课程传送门 <a href="https://www.bilibili.com/video/BV1eh411v7gt">Git基础与进阶</a></p>
+<hr />
+<h2 id="_9">答案</h2>
+<h2 id="_10">基础</h2>
+<h3 id="_11">查文档</h3>
+<p>〇 Swift官网的网址是（<a href="https://swift.org">https://swift.org</a>）。我们一般会在官网上查找Swift的文档，即Language Guide，网址为（<a href="https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html">https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html</a>）。</p>
+<p>〇 在Xcode中打开开发者文档的方法是：在菜单栏（<code>Window</code>）中点击（<code>Developer Documentation</code>），或使用快捷键（<code>shift cmd 0</code>）。</p>
+<h3 id="_12">强类型</h3>
+<p>观察下面的代码：（提示：观察不出来可以实际运行）</p>
+<pre><code class="language-swift">let a = 1
+a = 5
+var b = 4
+b = 4.5
+</code></pre>
+<p>〇 代码第二行报错的原因是（<code>a是一个常量无法更改</code>）。</p>
+<p>〇 代码第四行报错的原因是（<code>由类型推断机制，b的类型为Int，无法将小数4.5赋值给b</code>）。</p>
+<h3 id="_13">可选类型</h3>
+<p>〇 如果变量<code>a</code>是一个可选类型，我们可以通过方式（<code>BCD</code>）实现：如果其不为空，则取出真实值赋给<code>b</code>；若其为空，则令<code>b</code>为<code>0</code>：</p>
+<p>A. <code>let b = a!</code></p>
+<p>B. <code>let b = (a != nil) ? a : 0</code></p>
+<p>C. <code>if let b = a { ... } else { let b = 0  ... }</code></p>
+<p>D. <code>if a != nil { b = a!  ... } else { b = 0  ... }</code></p>
+<h3 id="_14">函数</h3>
+<p>〇 一个函数可以通过（<code>元组</code>）返回多个值。</p>
+<p>〇 编写程序，计算10的阶乘并输出结果。要求：使用<code>...</code>运算符。提示：循环 区间生成运算符
+（</p>
+<pre><code class="language-swift">var result: Int = 1
+for i in 2 ... 10 {
+    result *= i
+}
+
+print(result)
+</code></pre>
+<p>）</p>
+<p>〇 回顾函数闭包的相关知识，补全下列代码：</p>
+<pre><code class="language-swift">let fruits: [String] = [&quot;apple&quot;, &quot;orange&quot;, &quot;pear&quot;, &quot;pineapple&quot;]
+// 希望打印出 [&quot;pineapple&quot;, &quot;orange&quot;, &quot;apple&quot;, &quot;pear&quot;]
+// 即Array中的所有字符串按照长度从大到小排序
+
+// TODO
+</code></pre>
+<p>提示：</p>
+<p>阅读函数<code>sorted(by:)</code>的<a href="https://developer.apple.com/documentation/swift/sequence/2907222-sorted">文档</a>（<code>func sorted(by areInIncreasingOrder: (Self.Element, Self.Element) -&gt; Bool) -&gt; [Self.Element]</code>）</p>
+<p>如果你想直接在大括号中写函数的话，<code>$0</code>和<code>$1</code>可以分别指代第1个和第2个参数。</p>
+<p>答案：</p>
+<pre><code class="language-swift">print(fruits.sorted(by: { $0.count &gt; $1.count }))
+</code></pre>
+<p>或</p>
+<pre><code class="language-swift">func longer(a: String, b: String) -&gt; Bool {
+    return a.count &gt; b.count
+}
+
+print(fruits.sorted(by: longer))
+</code></pre>
+<h3 id="_15">统计各个专业的人数</h3>
+<pre><code class="language-swift">import Foundation
+
+enum Major {
+    case A
+    case B
+    case C
+    case D
+}
+
+struct Student {
+    var name: String
+    var major: Major
+}
+
+let studentList: [Student] = [
+    Student(name: &quot;Alice&quot;, major: .A),
+    Student(name: &quot;Bob&quot;, major: .B),
+    Student(name: &quot;Carl&quot;, major: .C),
+    Student(name: &quot;David&quot;, major: .D),
+    Student(name: &quot;Eric&quot;, major: .A),
+    Student(name: &quot;Fred&quot;, major: .D),
+    Student(name: &quot;Gavin&quot;, major: .C),
+    Student(name: &quot;Henry&quot;, major: .D),
+    Student(name: &quot;Ivy&quot;, major: .B),
+    Student(name: &quot;Janet&quot;, major: .D),
+    Student(name: &quot;Kathy&quot;, major: .A)
+]
+
+// 题目：
+// 统计studentList中各个专业的同学名字和总数目，并按照你倾向的方式打印。
+
+// TODO
+</code></pre>
+<p>一种解答：</p>
+<pre><code class="language-swift">var studentDict: [Major: [Student]] = [Major.A: [], Major.B: [], Major.C: [], Major.D: []]
+
+for student in studentList {
+    switch student.major {
+    case .A:
+        studentDict[.A]!.append(student)
+    case .B:
+        studentDict[.B]!.append(student)
+    case .C:
+        studentDict[.C]!.append(student)
+    case .D:
+        studentDict[.D]!.append(student)
+    }
+}
+
+for major in [Major.A, Major.B, Major.C, Major.D] {
+    let students = studentDict[major]!
+    let studentNames = students.map { $0.name }
+    print(&quot;\(major)(\(students.count)): \(studentNames.joined(separator: &quot;, &quot;))&quot;)
+}
+</code></pre>
+<h2 id="_16">进阶</h2>
+<h3 id="error-handling_1">Error Handling</h3>
+<p>执行如下程序，结果为（</p>
+<pre><code>File &quot;my homework&quot; was successfully printed! (paper: 3, ink: 79.6%)
+outOfPaper
+</code></pre>
+<p>）（共两行），简要解释输出结果：（<code>作业打印之后打印机的纸张不足以打印报告，因此抛出错误 outOfPaper</code>）。</p>
+<pre><code class="language-swift">import Foundation
+
+struct Printer {
+    var paper: Int // 0 - 400
+    var ink: Float // 0 - 100 percentage
+    let inkPerPage: Float = 0.1
+
+    enum error: Error {
+        case outOfPaper
+        case noInk
+    }
+}
+
+struct File {
+    var name: String
+    var page: Int
+}
+
+func printFile(_ file: File, with printer: inout Printer) throws {
+    if printer.paper &lt;= file.page {
+        throw Printer.error.outOfPaper
+    } else if printer.ink &lt;= Float(file.page) * printer.inkPerPage {
+        throw Printer.error.noInk
+    } else {
+        printer.paper -= file.page
+        printer.ink -= Float(file.page) * printer.inkPerPage
+        print(&quot;File \&quot;\(file.name)\&quot; was successfully printed! (paper: \(printer.paper), ink: \(String(format: &quot;%2.1f&quot;, printer.ink))%)&quot;)
+    }
+}
+
+var myHomework = File(name: &quot;my homework&quot;, page: 4)
+var myReport = File(name: &quot;my report&quot;, page: 5)
+var myPrinter = Printer(paper: 7, ink: 80)
+do {
+    try printFile(myHomework, with: &amp;myPrinter)
+    try printFile(myReport, with: &amp;myPrinter)
+} catch {
+    print(error)
+}
+</code></pre>
+<h3 id="log_1">Log()</h3>
+<p>新建<code>Project - macOS - Command Line Tool</code>，复制运行如下代码：</p>
+<pre><code class="language-swift">import Foundation // 1
+
+struct Log: CustomStringConvertible { // 3
+    public var time: String // 4
+    public var log: String // 5
+
+    init(filePath: String = #file, line: Int = #line, column: Int = #column, funcName: String = #function) { // 7
+        let fileName = (filePath as NSString).lastPathComponent // 8
+
+        let formatter = DateFormatter() // 10
+        formatter.dateStyle = .none // 11
+        formatter.timeStyle = .medium // 12
+        time = formatter.string(from: Date()) // 13
+
+        log = &quot;\(fileName)(\(line),\(column)) \(funcName)&quot; // 15
+    }
+
+    public var description: String { // 18
+        return &quot;[\(time) \(log)]\n\t&quot; // 19
+    }
+
+    public var string: String { // 22
+        description // 23
+    } // 24
+
+    public var error: String { // 26
+        &quot;[ERROR] &quot; + description // 27
+    }
+}
+
+func MyPrint() { // 31
+    print(Log().string + &quot;Hello, world!&quot;) // 32
+    print(Log().error + &quot;Bye, world.&quot;) // 33
+}
+
+MyPrint() // 36
+
+// Literal        Type     Value
+//
+// #file          String   The name of the file in which it appears.
+// #line          Int      The line number on which it appears.
+// #column        Int      The column number in which it begins.
+// #function      String   The name of the declaration in which it appears.
+</code></pre>
+<p>〇 该程序的运行结果是（</p>
+<pre><code>[23:51:18 main.swift(32,14) MyPrint()]
+    Hello, world!
+[ERROR] [23:51:18 main.swift(33,14) MyPrint()]
+    Bye, world.
+Program ended with exit code: 0
+</code></pre>
+<p>）。</p>
+<p>〇 第3行新建了一个结构体名为Log，后面冒号跟着的<code>CustomStringConvertible</code>是（<code>协议</code>），在结构体内部的变量（<code>description</code>）完成了<code>CustomStringConvertible</code>。</p>
+<p>〇 （Optional）可以去掉第4行的<code>public</code>关键字吗？（可以。这里加上<code>public</code>是为了使得变量属性更加明确。）</p>
+<p>〇 第7行中，<code>filePath: String = #file</code>中<code>filePath</code>是参数名称，冒号后面的<code>String</code>是这个参数的（<code>类型</code>），<code>=</code>后面跟的是这个参数的（<code>默认值</code>）。</p>
+<p>〇 （Optional）第8行中，<code>(filePath as NSString)</code>是在做（<code>类型转换</code>）。</p>
+<p>〇 第12行中出现了<code>.medium</code>，它们是（<code>枚举值</code>）的一种。</p>
+<p>〇（Optional）第12行如果要补全<code>.</code>前面的内容可以添加（<code>DateFormatter.Style</code>）。提示：查看<code>.medium</code>的文档。</p>
+<p>〇 第13行中的<code>formatter.string(from: )</code>，这里<code>string</code>是一个（<code>函数</code>），看到<code>from</code>这一个介词可以推测<code>from</code>是参数的（<code>外部名称</code>）。</p>
+<p>〇 第19行的<code>\n</code>和<code>\t</code>是（<code>转义</code>）字符。</p>
+<p>〇 第22行定义了变量string，我们将其称作（计算属性）。将22 23 24这三行代码补充完整：（</p>
+<pre><code class="language-swift">public var string: String {
+    get {
+        return description
+    }
+}
+</code></pre>
+<p>）。</p>
+<p>〇 第32行的<code>Log()</code>（<code>新建</code>）了一个结构体实例。</p>
+<p>〇 第32行的<code>+</code>表示（<code>字符串拼接</code>）。</p>
+<p>〇 第36行调用了函数<code>MyPrint</code>，该函数有（<code>0</code>）个参数，（<code>0</code>）个返回值。</p>
+<p>〇 （Optional）尝试如下步骤在<code>Xcode</code>中添加<code>code snippet</code>：</p>
+<p>To create a <code>code snippet</code>:</p>
+<ol>
+<li>Select: print(Log().string + "&lt;\hashinfo\hash&gt;")</li>
+<li>Go to <code>Xcode -&gt; Editor -&gt; Create Code Snippet</code>.</li>
+<li>Change <code>\hash</code> to <code>#</code>.</li>
+<li>Set title as <code>Log()</code> and <code>completion</code> as <code>print</code>.</li>
+</ol>
+<p>Try typing <code>print</code> and select the code snippet.</p>
+<h2 id="_17">其他</h2>
+<p>〇 （Optional）如果我们想导入并使用一个开源的第三方<code>Swift Package</code>，需要点击<code>Xcode</code>菜单栏（<code>File -&gt; Swift Packages -&gt; Add Package Dependency...</code>）（写出层级关系），然后添加该<code>Swift Package</code>的地址。之后在需要用到该包的代码文件最开始写上<code>import</code>语句就可以了。</p>
+<p>〇 <code>Swift</code>有一个非常好用的格式化工具<a href="https://github.com/nicklockwood/SwiftFormat">GitHub | SwiftFormat</a>，阅读其README说明，在自己的Xcode中添加该格式化工具并尝试使用。你在你的<code>Mac</code>上安装了吗？（）（安装了/还没/下次一定）。</p>
+<p>〇 （Optional）<code>Swift</code>目前的最新版本是<code>5.5</code>，这一个版本引入的一个重要更新是Concurrency WWDC链接<a href="https://developer.apple.com/wwdc21/10132">WWDC21 | Meet async/await in Swift</a>，感兴趣的同学可以自行查看。</p>
+<p>〇 （Optional）如果你还没有学习过Git，可以花时间掌握一下这个合作开发的必备工具。社团往期培训课程传送门 <a href="https://www.bilibili.com/video/BV1eh411v7gt">Git基础与进阶</a></p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022 杨远航
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    <a href="https://space.bilibili.com/1793231437" target="_blank" rel="noopener" title="Bilibili | 沐ca" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M488.6 104.1c16.7 18.1 24.4 39.7 23.3 65.7v202.4c-.4 26.4-9.2 48.1-26.5 65.1-17.2 17-39.1 25.9-65.5 26.7H92.02c-26.45-.8-48.21-9.8-65.28-27.2C9.682 419.4.767 396.5 0 368.2V169.8c.767-26 9.682-47.6 26.74-65.7C43.81 87.75 65.57 78.77 92.02 78h29.38L96.05 52.19c-5.75-5.73-8.63-13-8.63-21.79 0-8.8 2.88-16.06 8.63-21.797C101.8 2.868 109.1 0 117.9 0s16.1 2.868 21.9 8.603L213.1 78h88l74.5-69.397C381.7 2.868 389.2 0 398 0c8.8 0 16.1 2.868 21.9 8.603 5.7 5.737 8.6 12.997 8.6 21.797 0 8.79-2.9 16.06-8.6 21.79L394.6 78h29.3c26.4.77 48 9.75 64.7 26.1zm-38.8 69.7c-.4-9.6-3.7-17.4-10.7-23.5-5.2-6.1-14-9.4-22.7-9.8H96.05c-9.59.4-17.45 3.7-23.58 9.8-6.14 6.1-9.4 13.9-9.78 23.5v194.4c0 9.2 3.26 17 9.78 23.5s14.38 9.8 23.58 9.8H416.4c9.2 0 17-3.3 23.3-9.8 6.3-6.5 9.7-14.3 10.1-23.5V173.8zm-264.3 42.7c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.2 6.3-14 9.5-23.6 9.5-9.6 0-17.5-3.2-23.6-9.5-6.1-6.3-9.4-14-9.8-23.2v-33.3c.4-9.1 3.8-16.9 10.1-23.2 6.3-6.3 13.2-9.6 23.3-10 9.2.4 17 3.7 23.3 10zm191.5 0c6.3 6.3 9.7 14.1 10.1 23.2V273c-.4 9.2-3.7 16.9-9.8 23.2-6.1 6.3-14 9.5-23.6 9.5-9.6 0-17.4-3.2-23.6-9.5-7-6.3-9.4-14-9.7-23.2v-33.3c.3-9.1 3.7-16.9 10-23.2 6.3-6.3 14.1-9.6 23.3-10 9.2.4 17 3.7 23.3 10z"/></svg>
+    </a>
+  
+    
+    
+    <a href="https://github.com/Muamu925" target="_blank" rel="noopener" title="GitHub | Muamu925" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.tabs", "navigation.top", "navigation.indexes", "navigation.expand", "search.suggest", "search.highlight"], "search": "../../../../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\s\\-\uff0c\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.8492ddcf.min.js"></script>
+      
+    
+  </body>
+</html>
