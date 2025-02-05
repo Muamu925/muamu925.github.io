@@ -3,12 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Chat</title>
+    <title>AI Assistant</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+        }
+
+        .chat-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+
+        #chat-box {
+            height: 500px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+        }
+
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            max-width: 70%;
+        }
+
+        .user-message {
+            background-color: #e3f2fd;
+            margin-left: auto;
+        }
+
+        .ai-message {
+            background-color: #f5f5f5;
+            margin-right: auto;
+        }
+
+        .thinking {
+            color: #666;
+            font-style: italic;
+            padding: 5px;
+            border-left: 3px solid #2196F3;
+        }
+
+        .final-answer {
+            border-left: 3px solid #4CAF50;
+            margin-top: 10px;
+        }
+
+        #user-input {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        #send-button {
+            padding: 10px 20px;
+            background-color: #2196F3;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #send-button:hover {
+            background-color: #1976D2;
+        }
+
+        .loading {
+            display: none;
+            color: #666;
+            font-style: italic;
+            padding: 5px;
+        }
+    </style>
 </head>
 <body>
-
     <div class="chat-container">
         <div id="chat-box"></div>
+        <div class="loading">AI is thinking...</div>
         <input type="text" id="user-input" placeholder="Ask me anything..." />
         <button id="send-button">Send</button>
     </div>
@@ -17,23 +100,66 @@
         const sendButton = document.getElementById('send-button');
         const userInput = document.getElementById('user-input');
         const chatBox = document.getElementById('chat-box');
-        
-        sendButton.addEventListener('click', async () => {
-            const userMessage = userInput.value;
-            if (userMessage.trim()) {
-                // Display user message
-                chatBox.innerHTML += `<div class="message user-message">${userMessage}</div>`;
-                userInput.value = '';
+        const loading = document.querySelector('.loading');
 
-                // Call API to get AI response
-                const aiResponse = await getAIResponse(userMessage);
-                chatBox.innerHTML += `<div class="message ai-message">${aiResponse}</div>`;
+        // 加密后的API密钥，使用Base64编码
+        const encryptedApiKey = "SUkqSWpabFJHQ0ZJQ0FQRDAxSUxXZ2dFRQ=="; // 替换为实际加密后的密钥
+
+        sendButton.addEventListener('click', async () => {
+            const userMessage = userInput.value.trim();
+            if (!userMessage) return;
+
+            // 显示用户消息
+            chatBox.innerHTML += `
+                <div class="message user-message">${userMessage}</div>
+            `;
+            userInput.value = '';
+
+            try {
+                loading.style.display = 'block';
+                
+                // 解密API密钥
+                const apiKey = decodeApiKey(encryptedApiKey);
+
+                // 获取AI思考过程
+                const thinking = await getThinkingProcess(userMessage, apiKey);
+                chatBox.innerHTML += `
+                    <div class="thinking">${thinking}</div>
+                `;
+
+                // 获取最终回答
+                const answer = await getAIResponse(userMessage, apiKey);
+                chatBox.innerHTML += `
+                    <div class="final-answer message ai-message">${answer}</div>
+                `;
+
+                chatBox.scrollTop = chatBox.scrollHeight;
+            } catch (error) {
+                console.error('Error:', error);
+                chatBox.innerHTML += `
+                    <div class="message ai-message">Sorry, there was an error processing your request.</div>
+                `;
+            } finally {
+                loading.style.display = 'none';
             }
         });
 
-        async function getAIResponse(message) {
-            const apiKey = "IF0MEWUKMI8TK7QGHYEJ36OWM2JM0NODD5OVFOPV";  // Replace with your actual API key
+        // 解密函数（示例使用Base64解码）
+        function decodeApiKey(encryptedKey) {
+            return atob(encryptedKey);
+        }
+
+        // 获取思考过程（示例）
+        async function getThinkingProcess(message, apiKey) {
+            // 这里可以添加实际的API调用来获取思考过程
+            // 返回示例思考过程
+            return `Analyzing your question: ${message}`;
+        }
+
+        // 获取最终回答
+        async function getAIResponse(message, apiKey) {
             const apiUrl = "https://ai.gitee.com/v1/chat/completions";
+            
             const headers = {
                 "Content-Type": "application/json",
                 "Authorization": `Bearer ${apiKey}`,
@@ -69,6 +195,5 @@
             return data.choices[0]?.message?.content || "Sorry, I couldn't understand that.";
         }
     </script>
-
 </body>
 </html>
