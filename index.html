@@ -1,37 +1,74 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>yyhyahyyh的小店</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>AI Chat</title>
 </head>
 <body>
-    <header>
-        <h1>资源内容</h1>
-    </header>
-    <main class="container">
-        <div class="item" onclick="purchaseResource('resource1')">
-            <img src="\resources\zz\23\23.jpg" alt="资源1">
-            <div class="info">
-                <h3>高中政治选修二三合集</h3>
-                <p>价格：¥10</p>
-            </div>
-        </div>
-        <div class="item" onclick="purchaseResource('resource2')">
-            <img src="image2_thumbnail.jpg" alt="资源2">
-            <div class="info">
-                <h3>资源</h3>
-                <p>价格：¥</p>
-            </div>
-        </div>
-        <!-- 添加更多资源项 -->
-    </main>
 
-    <footer>
-        <p>&copy; 2024 yyhyahyyh 版权所有.</p>
-    </footer>
+    <div class="chat-container">
+        <div id="chat-box"></div>
+        <input type="text" id="user-input" placeholder="Ask me anything..." />
+        <button id="send-button">Send</button>
+    </div>
 
-    <script src="scripts.js"></script>
+    <script>
+        const sendButton = document.getElementById('send-button');
+        const userInput = document.getElementById('user-input');
+        const chatBox = document.getElementById('chat-box');
+        
+        sendButton.addEventListener('click', async () => {
+            const userMessage = userInput.value;
+            if (userMessage.trim()) {
+                // Display user message
+                chatBox.innerHTML += `<div class="message user-message">${userMessage}</div>`;
+                userInput.value = '';
+
+                // Call API to get AI response
+                const aiResponse = await getAIResponse(userMessage);
+                chatBox.innerHTML += `<div class="message ai-message">${aiResponse}</div>`;
+            }
+        });
+
+        async function getAIResponse(message) {
+            const apiKey = "IF0MEWUKMI8TK7QGHYEJ36OWM2JM0NODD5OVFOPV";  // Replace with your actual API key
+            const apiUrl = "https://ai.gitee.com/v1/chat/completions";
+            const headers = {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${apiKey}`,
+            };
+
+            const body = JSON.stringify({
+                model: "DeepSeek-R1-Distill-Qwen-32B",
+                stream: false,
+                max_tokens: 2048,
+                temperature: 0.6,
+                top_p: 0.8,
+                top_k: 20,
+                frequency_penalty: 1.1,
+                messages: [
+                    {
+                        "role": "system",
+                        "content": "You are a helpful and harmless assistant. You should think step-by-step."
+                    },
+                    {
+                        "role": "user",
+                        "content": message
+                    }
+                ]
+            });
+
+            const response = await fetch(apiUrl, {
+                method: 'POST',
+                headers: headers,
+                body: body
+            });
+
+            const data = await response.json();
+            return data.choices[0]?.message?.content || "Sorry, I couldn't understand that.";
+        }
+    </script>
+
 </body>
 </html>
